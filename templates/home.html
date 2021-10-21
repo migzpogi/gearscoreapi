@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>{{gear_score}}</title>
+    <title>GearScore API</title>
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
@@ -20,10 +20,10 @@
             <div class="toptabs" id="toptabs">
                 <dl>
                     <dt>
-                        <a href="#" class="unlinked active">GearScore</a>
+                        <a href="#" class="unlinked active">README</a>
                     </dt>
                     <dt>
-                        <a href="https://wotlkdb.com/?item={{item_id}}">Complete item info</a>
+                        <a href="https://github.com/migzpogi/gearscoreapi">GitHub Page</a>
                     </dt>
                 </dl>
             </div>
@@ -82,7 +82,7 @@
                                 <span>New search</span>
                             </em>
                         </a>
-                        <h1>{{item_name}}</h1>
+<!--                        <h1>Hi!</h1>-->
 <!--                        <div id="ic54591" style="float: left">-->
 <!--                            <div class="iconlarge">-->
 <!--                                <ins style="background-image: url('https://wotlkdb.com/static/images/wow/icons/large/inv_misc_rubysanctum3.jpg');"></ins>-->
@@ -98,12 +98,31 @@
                                             <tbody>
                                             <tr>
                                                 <td>
-                                                    <b>GearScore: {{gear_score}}</b>
+                                                    <b>View an item's GearScore online.</b>
                                                     <br>
                                                     <br>
                                                     <span class="q2">Note: There might me some variations from the in-game one, but this is good enough for approximation.</span>
                                                     <br>
                                                     <span class="q2">Reference is Warmane, not retail WoW.</span>
+                                                    <br>
+                                                    <br>
+                                                    <h2>Usage</h2>
+                                                    <ul>
+                                                        <li>Just replace <a>db</a> with <a>gs</a> when searching through wotlk<a>db</a>.com</li>
+                                                        <li>Example: <a href="https://www.wotlkgs.com/?item=54590">https://www.wotlkgs.com/?item=54590</a></li>
+                                                        <img src="{{ url_for('static',filename='url.png') }}"></img>
+                                                    </ul>
+                                                    <h2>Limitations</h2>
+                                                    <ul>
+                                                        <li>No images. Mapping the icon to the specific item requires more work.</li>
+                                                        <li>No search. Items are still searched through database websites such as wotlkdb and evowow.</li>
+                                                    </ul>
+                                                    <h2>Thanks</h2>
+                                                    <ul>
+                                                        <li><a href="https://github.com/mortenmoulder/Snuske">Snuske</a> - got the database of items with GearScore here.</li>
+                                                        <li><a href="https://wotlkdb.com/">WOTLKDB</a> - not really affiliated with this site, but this is where you search.</li>
+                                                        <li><a href="https://github1s.com/">github1s</a> - got the inspiration for the implementation here. </li>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                             </tbody>

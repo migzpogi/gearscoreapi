@@ -11,21 +11,23 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
+    config = configparser.ConfigParser()
+    config.read('WebApp.ini')
     item_id = request.args.get('item')
     if item_id is None:
-        return render_template('index.html', item_id=None, gear_score=None, item_name="Welcome!")
-    elif item_id == 'random':
+        return render_template('home.html', item_id=None, gear_score=None, item_name="Welcome!")
+    elif item_id == 'random': # TODO
         return render_template('index.html', item_id=None, gear_score=None, item_name="Random item feature soon!")
     else:
         try:
-            r = requests.get(f"http://host/gs/api/v1/{item_id}")
+            r = requests.get(f"http://{config['api']['host']}:{config['api']['port']}/gs/api/v1/{item_id}")
             response = r.json()
             if response.get("gearScore"):
                 return render_template('index.html', item_id=item_id, gear_score=response.get("gearScore"), item_name=response.get("name"))
             else:
-                return render_template('index.html', item_id=None, gear_score=None, item_name="Wrong item number!")
+                return render_template('error.html', item_id=None, gear_score=None, item_name="None")
         except:
-            return render_template('index.html', item_id=None, gear_score=None, item_name="Some error")
+            return render_template('error.html', item_id=None, gear_score=None, item_name="None")
 
 
 
