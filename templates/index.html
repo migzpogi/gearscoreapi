@@ -1,0 +1,120 @@
+<html>
+<head>
+    <title>{{item_name}}</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style2.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style3.css') }}">
+
+</head>
+
+<body>
+<div id="layers"></div>
+<div class="layout nosidebar" id="layout">
+    <div class="layout-inner" id="layout-inner">
+        <div class="header" id="header">
+        </div>
+        <div id="wrapper" class="wrapper">
+            <div class="toptabs" id="toptabs">
+                <dl>
+                    <dt>
+                        <a href="#" class="unlinked active">GearScore</a>
+                    </dt>
+                    <dt>
+                        <a href="#">Complete item info</a>
+                    </dt>
+                </dl>
+            </div>
+            <div class="main" id="main">
+                <div class="main-contents" id="main-contents">
+                    <table class="infobox">
+                        <tbody>
+                        <tr>
+                            <th id="infobox-quick-facts">Quick Facts</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="infobox-spacer"></div>
+                                <div>
+                                    <ul class="first last">
+                                        <li>
+                                            <div>WOTLK 3.3.5a</div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th id="infobox-screenshots">GitHub</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="infobox-spacer"></div>
+                                <div id="infobox-sticky-ss">
+                                    Check out my other projects -
+                                    <a href="#">here</a>
+                                    !
+                                </div>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div class="text">
+                        <a href="http://www.google.com" rel="np" class="button-red">
+                            <em>
+                                <b>
+                                    <i>
+                                        Random item
+                                    </i>
+                                </b>
+                                <span>Random item</span>
+                            </em>
+                        </a>
+                        <a href="http://www.google.com" rel="np" class="button-red">
+                            <em>
+                                <b>
+                                    <i>
+                                        WOTLK DB
+                                    </i>
+                                </b>
+                                <span>WOTLK DB</span>
+                            </em>
+                        </a>
+                        <h1>{{item_name}}</h1>
+<!--                        <div id="ic54591" style="float: left">-->
+<!--                            <div class="iconlarge">-->
+<!--                                <ins style="background-image: url('https://wotlkdb.com/static/images/wow/icons/large/inv_misc_rubysanctum3.jpg');"></ins>-->
+<!--                                <del></del>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div id="tt54591" class="wowhead-tooltip tooltip-slider" style="float: left; padding-top: 1px; width:320px; visibility: visible;">
+                            <table>
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <table style="white-space: nowrap; width: 100%">
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <b>GearScore: {{gear_score}}</b>
+                                                    <br>
+                                                    <span class="q2">Note: Slight variation</span>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
