@@ -14,7 +14,8 @@ This project has two parts:
 
 When searching an item through wotlkdb.com, replace the **db** part with **gs**. Example: 
 * https://wotlkdb.com/?item=54590 to
-* https://wotlkgs.com/?item=54590
+* https://wotlkgs.com/?item=54590  
+
 ![](https://i.imgur.com/hAYf2S3.png)
 
 There might be some variations from the in-game one (depending on which server you are playing, this was designed with
