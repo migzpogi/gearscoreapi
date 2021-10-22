@@ -24,7 +24,8 @@ Warmane in mind) but is good enough at least for approximation.
 ## Web API
 
 The web API can be accessed using a GET method at [https://wotlkgs.com/gs/api/v1/54590](https://wotlkgs.com/gs/api/v1/54590). 
-Just replace the last part (54590) with your item id.
+Just replace the last part (54590) with your item id.  
+
 ![API](https://i.imgur.com/FAsOxja.png)
 
 A Swagger UI can also be accessed through [here](http://wotlkgs.com:8080/swagger/).
