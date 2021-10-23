@@ -1,3 +1,4 @@
+import random
 import pymongo
 
 
@@ -50,6 +51,29 @@ class MongoDBClient:
             response = None
 
         return response
+
+    def get_distinct_itemids(self):
+        """
+        Queries the database for the distinct itemID
+        :return list: itemIDs
+        """
+
+        db = self.client['warmane']
+        col = db['items']
+
+        result = col.distinct('itemID')
+
+        return result
+
+    def get_random_itemid(self):
+        """
+        Gets a random itemID from the database
+        :return int: itemID
+        """
+
+        item_ids = self.get_distinct_itemids()
+
+        return random.choice(item_ids)
 
 
 def foo():
