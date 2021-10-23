@@ -19,8 +19,12 @@ def index():
     item_id = request.args.get('item')
     if item_id is None:
         return render_template('home.html', item_id=None, gear_score=None, item_name="Welcome!")
-    elif item_id == 'random': # TODO
-        return render_template('index.html', item_id=None, gear_score=None, item_name="Random item feature soon!")
+    elif item_id == 'random':
+        random_id = gsapp.get_random_id()
+
+        r = requests.get(f"http://{config['api']['host']}:{config['api']['port']}/gs/api/v1/{random_id}")
+        response = r.json()
+        return render_template('index.html', item_id=random_id, gear_score=response.get("gearScore"), item_name=response.get("name"))
     else:
         try:
             r = requests.get(f"http://{config['api']['host']}:{config['api']['port']}/gs/api/v1/{item_id}")
