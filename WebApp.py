@@ -1,11 +1,14 @@
-from flask import Flask, request, jsonify, Response, render_template
-from flask_restplus import Api, Resource
-from gslib.gearscore import MongoDBClient
 import configparser
+
+from flask import Flask, request, render_template
+from flask_restplus import Api, Resource
 import requests
 
-import json
+from gslib.initproperties import InitProperties
+from gslib.gsapp import GSApp
 
+gsapp_prop = InitProperties('WebApp.ini')
+gsapp = GSApp(gsapp_prop)
 app = Flask(__name__)
 
 
@@ -30,7 +33,6 @@ def index():
             return render_template('error.html', item_id=None, gear_score=None, item_name="None")
 
 
-
 api = Api(
     app=app,
     version='1.0',
@@ -43,40 +45,8 @@ api = Api(
 
 @api.route("/gs/api/v1/<int:id>")
 class GearScore(Resource):
-    def __create_response_object(self, body):
-        response_object = Response(
-            response=json.dumps(body),
-            mimetype='application/json'
-        )
-        response_object.headers['Trace'] = '001'
-        return response_object
-
     def get(self, id):
-        config = configparser.ConfigParser()
-        config.read('WebApp.ini')
-
-        mdb_client = MongoDBClient(config['mongodb']['host'],
-                                   config['mongodb']['port'],
-                                   config['mongodb']['user'],
-                                   config['mongodb']['pass'],
-                                   config['mongodb']['authsrc'],
-                                   config['mongodb']['authmech'])
-
-        mdb_response = mdb_client.get_item_details(id)
-
-        if mdb_response:
-            body = {
-                "gearScore": mdb_response['gearScore'],
-                'itemId': mdb_response['itemID'],
-                'name': mdb_response['name']
-            }
-            return self.__create_response_object(body)
-        else:
-            body = {
-                "ErrorCode": "E001",
-                "ErrorMessage": "Item ID not in database."
-            }
-            return self.__create_response_object(body)
+        return gsapp.get(id)
 
 
 if __name__ == '__main__':
