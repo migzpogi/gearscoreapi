@@ -22,8 +22,6 @@ class GSApp:
         :return:
         """
 
-        # print(self.mdb_client.get_random_itemid())
-
         mdb_response = self.mdb_client.get_item_details(id)
 
         if mdb_response:
@@ -39,3 +37,11 @@ class GSApp:
                 "ErrorMessage": "Item ID not in database."
             }
             return self.__create_response_object(body)
+
+    def get_random_id(self):
+        """
+        Random item
+        :return:
+        """
+
+        return self.mdb_client.get_random_itemid()
