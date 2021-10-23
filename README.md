@@ -40,3 +40,5 @@ to make it better, feel free to contact me.
 * [Snuske](https://github.com/mortenmoulder/Snuske) - got the database of items with GearScore here.
 * [Wotlkdb](https://wotlkdb.com/) - not really affiliated with this site, but this is where you search.
 * [github1s](https://github1s.com/) - got the inspiration for the implementation here.
+
+
